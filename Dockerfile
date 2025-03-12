@@ -52,7 +52,7 @@ RUN	cd /root && \
 	chown -R www-data:www-data /usr/share/zoneminder/ && \
 	echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 	sed -i "s|^;date.timezone =.*|date.timezone = ${TZ}|" /etc/php/$PHP_VERS/apache2/php.ini && \
-	service mysql start && \
+	service mariadb start && \
 	mysql -uroot -e "grant all on zm.* to 'zmuser'@localhost identified by 'zmpass';" && \
 	mysqladmin -uroot reload && \
 	mysql -sfu root < "mysql_secure_installation.sql" && \
