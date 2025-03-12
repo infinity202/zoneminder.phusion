@@ -95,4 +95,4 @@ VOLUME \
 
 EXPOSE 80 443 9000
 
-CMD ["/sbin/my_init"]
+#CMD ["/sbin/my_init"]
