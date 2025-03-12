@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: phusion/baseimage
+    runs-on: phusion/baseimage:noble-1.0.0
 
     steps:
     - uses: actions/checkout@v4
