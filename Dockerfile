@@ -54,18 +54,19 @@ RUN	cd /root && \
 	sed -i "s|^;date.timezone =.*|date.timezone = ${TZ}|" /etc/php/$PHP_VERS/apache2/php.ini && \
 	service mariadb start && \
 	mysqladmin -uroot reload && \
-	mysql -sfu root < "mysql_secure_installation.sql" && \
-	rm mysql_secure_installation.sql && \
+	#mysql -sfu root < "mysql_secure_installation.sql" && \
+	#rm mysql_secure_installation.sql && \
 	mysql -sfu root < "mysql_defaults.sql" && \
 	rm mysql_defaults.sql && \
  	mysql -sfu root < "/usr/share/zoneminder/db/zm_create.sql" && \
-  	mysql -uroot -e "grant all on zm.* to 'zmuser'@localhost identified by 'zmpass';" && \
+  	mysql -uroot -e "grant all on zm.* to 'zmuser'@'localhost' identified VIA mysql_native_password USING 'zmpass'" && \
+   	mysql -uroot -e "flush privileges" && \
   
 
 RUN	systemd-tmpfiles --create zoneminder.conf && \
 	mv /root/zoneminder /etc/init.d/zoneminder && \
 	chmod +x /etc/init.d/zoneminder && \
-	service mysql restart && \
+	service mariadb restart && \
 	sleep 5 && \
 	service apache2 restart && \
 	service zoneminder start
