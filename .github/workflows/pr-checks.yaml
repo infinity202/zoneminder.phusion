@@ -7,7 +7,7 @@ on:
 jobs:
   code-quality:
     name: Test pull request function
-    runs-on: phusion/baseimage
+    runs-on: phusion/baseimage:noble-1.0.0
     environment: playground
     permissions:
      contents: read
