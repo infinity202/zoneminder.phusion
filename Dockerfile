@@ -1,4 +1,4 @@
-FROM phusion/baseimage
+FROM ubuntu-latest
 
 LABEL maintainer="dlandon"
 
