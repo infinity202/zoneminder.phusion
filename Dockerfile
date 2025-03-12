@@ -20,7 +20,9 @@ COPY init/ /etc/my_init.d/
 COPY defaults/ /root/
 COPY zmeventnotification/ /root/zmeventnotification/
 
-RUN	add-apt-repository -y ppa:iconnor/zoneminder-$ZM_VERS && \
+RUN	deb https://ppa.launchpadcontent.net/iconnor/zoneminder-1.36/ubuntu oracular main 
+	deb-src https://ppa.launchpadcontent.net/iconnor/zoneminder-1.36/ubuntu oracular main 
+	add-apt-repository -y ppa:iconnor/zoneminder-$ZM_VERS && \
 	add-apt-repository ppa:ondrej/php && \
 	add-apt-repository ppa:ondrej/apache2 && \
 	apt-get update && \
