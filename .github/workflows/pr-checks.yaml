@@ -7,7 +7,7 @@ on:
 jobs:
   code-quality:
     name: Test pull request function
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     environment: playground
     permissions:
      contents: read
