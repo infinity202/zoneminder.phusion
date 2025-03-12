@@ -24,8 +24,9 @@ RUN	apt-get update && \
 	apt-get -y upgrade -o Dpkg::Options::="--force-confold" && \
 	apt-get -y dist-upgrade -o Dpkg::Options::="--force-confold" && \
 	apt-get install software-properties-common \
- 	apt-get update && \
- 	add-apt-repository -y ppa:iconnor/zoneminder-$ZM_VERS && \
+  	apt-get update
+   
+ RUN	add-apt-repository -y ppa:iconnor/zoneminder-$ZM_VERS && \
 	add-apt-repository ppa:ondrej/php && \
 	add-apt-repository ppa:ondrej/apache2 && \
 	apt-get -y install apache2 mariadb-server && \
