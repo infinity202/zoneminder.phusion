@@ -59,10 +59,10 @@ RUN	cd /root && \
 	mysql -sfu root < "mysql_defaults.sql" && \
 	rm mysql_defaults.sql && \
  	mysql -sfu root < "/usr/share/zoneminder/db/zm_create.sql" && \
-  	mysql -uroot -e "grant all on zm.* to 'zmuser'@'localhost' identified VIA mysql_native_password USING 'zmpass'" && \
-   	mysql -uroot -e "flush privileges" && \
+  	mysql -uroot -e "CREATE USER IF NOT EXISTS 'zmuser'@'localhost' identified by 'zmpass'" && \
+  	mysql -uroot -e "grant all on zm.* to 'zmuser'@'localhost' " && \
+   	mysql -uroot -e "flush privileges" 
   
-
 RUN	systemd-tmpfiles --create zoneminder.conf && \
 	mv /root/zoneminder /etc/init.d/zoneminder && \
 	chmod +x /etc/init.d/zoneminder && \
