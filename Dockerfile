@@ -73,7 +73,8 @@ RUN	systemd-tmpfiles --create zoneminder.conf && \
 
 RUN	mv /root/default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf && \
 	mkdir /etc/apache2/ssl/ && \
-	mkdir -p /var/lib/zmeventnotification/images && \
+ 	mkdir /etc/cron.weekly/ && \
+ 	mkdir -p /var/lib/zmeventnotification/images && \
 	chown -R www-data:www-data /var/lib/zmeventnotification/ && \
 	chmod -R +x /etc/my_init.d/ && \
 	cp -p /etc/zm/zm.conf /root/zm.conf && \
