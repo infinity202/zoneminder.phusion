@@ -1,6 +1,6 @@
-FROM ubuntu-latest
+FROM ubuntu:latest
 
-LABEL maintainer="dlandon"
+LABEL maintainer="infinity202"
 
 ENV	DEBCONF_NONINTERACTIVE_SEEN="true" \
 	DEBIAN_FRONTEND="noninteractive" \
@@ -12,7 +12,7 @@ ENV	DEBCONF_NONINTERACTIVE_SEEN="true" \
 	TZ="Etc/UTC" \
 	TERM="xterm" \
 	PHP_VERS="7.4" \
-	ZM_VERS="1.36.35" \
+	ZM_VERS="1.36" \
 	PUID="99" \
 	PGID="100"
 
