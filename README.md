@@ -28,7 +28,7 @@ Easiest way to deploy is doing the following:
 - create a new directory somewhere on this machine (assert /opt/zoneminder2025)
 - create a new file here, named docker-compose.yml and take over the contents of the file inside this repo.
 - make Docker pull this git repository: (we use `zoneminder2025 ` as a image reference, you can change it to whatever you like) 
-- ```docker build -t zoneminder2025 github.com/infinity202/zoneminder.unraid ```
+- ```docker build -t zoneminder2025 github.com/infinity202/zoneminder.phusion ```
 - building the first time will take several minutes !
 - when finished:
 - ```sudo docker compose -f docker-compose.yaml up```
