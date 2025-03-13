@@ -1,5 +1,6 @@
-## Zoneminder Docker for Unraid
-(Current version: 1.34)
+## Zoneminder Docker for Ubuntu:latest
+
+(Zoneminder version: 1.36)
 
 ### About
 This is an easy to run dockerized image of [ZoneMinder](https://github.com/ZoneMinder/zoneminder) along with the the [ZM Event Notification Server](https://github.com/pliablepixels/zmeventnotification).  
@@ -8,7 +9,17 @@ The configuration settings that are needed for this implementation of Zoneminder
 
 This verson will now upgrade from previous versions of Zoneminder.
 
+As this repository is a Fork of the DLANDON repository I will keep the donation link below:
 You can donate [here](https://www.paypal.com/us/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=EJGPC7B5CS66E).
+
+#### Components
+- Mail client : ssmtp
+- webserver : apache2 (ppa:ondrej/apache2)
+- Webcode : PHP7.4 (ppa:ondrej/php)
+- Database : mariadb (latest)
+- Zoneminder 1.36
+
+Total size of the container at deployement is 507 MB due to the use of Ubuntu full OS. 
 
 #### Usage
 
