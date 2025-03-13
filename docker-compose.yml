@@ -1,25 +1,22 @@
-version: '3'
 services:
   zoneminder:
-    container_name: zoneminder
-    image: dlandon/zoneminder.unraid:latest
-    restart: unless-stopped
-    ports:
-      - 8443:443/tcp
-      - 9000:9000/tcp
-#      - 6802:6802/tcp # uncomment to open telnet port for OPT_TRIGGERS
+    image: zoneminder2025  # change to the name you used when you build the image !
+    container_name: Zoneminder2025
+    privileged: true
     shm_size: 8G
+    networks:
+     # - traefik_proxy
+      - default
+    ports:
+      - '8843:443/tcp'
+      - '19099:9000/tcp'
     environment:
-      - TZ=Europe/London
-      - PUID=99
-      - PGID=100
-      - MULTI_PORT_START=0
-      - MULTI_PORT_END=0
+      - TZ=Europe/Amsterdam
     volumes:
-      - ./config:/config
-      - ./data:/var/cache/zoneminder
-    healthcheck:
-      test: ["CMD", "curl", "-fk", "https://0.0.0.0:443/zm"]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+      - /opt/zoneminder2025/events:/var/lib/zoneminder/events
+      - /opt/zoneminder2025/events:/var/cache/zoneminder/events
+      - /opt/zoneminder2025/images:/var/lib/zoneminder/images
+      - /opt/zoneminder2025/images:/var/cache/zoneminder/images
+      - /opt/zoneminder2025/logs:/var/log/zm
+      - /opt/zoneminder2025/config/:/config
+
