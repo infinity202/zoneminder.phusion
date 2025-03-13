@@ -95,5 +95,5 @@ VOLUME \
 
 EXPOSE 80 443 9000
 
-CMD [CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"]
+CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
 #CMD ["/sbin/my_init"]
