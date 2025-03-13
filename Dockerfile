@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM phusion/baseimage:focal-1.2.0
 
 LABEL maintainer="infinity202"
 
