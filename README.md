@@ -20,7 +20,7 @@ You can donate [here](https://www.paypal.com/us/cgi-bin/webscr?cmd=_s-xclick&amp
 - Database : mariadb (latest)
 - Zoneminder 1.36
 
-Total size of the container at deployement is small. 
+Total size of the container at deployement is 473 MB. 
 
 ### Deployment
 Easiest way to deploy is doing the following:  
@@ -32,7 +32,8 @@ Easiest way to deploy is doing the following:
 - building the first time will take several minutes !
 - when finished:
 - ```sudo docker compose -f docker-compose.yaml up```
-- Your Zoneminder server will be up in a few minutes and reachable on https://`your docker host`:8843/zm 
+- Your Zoneminder server will be up in a few minutes and reachable on https://`your docker host`:8843/zm
+- the ports are defined in your docker-compose.yml file! !
 
 #### Usage
 
