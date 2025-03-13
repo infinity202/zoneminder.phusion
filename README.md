@@ -9,17 +9,30 @@ The configuration settings that are needed for this implementation of Zoneminder
 
 This verson will now upgrade from previous versions of Zoneminder.
 
-As this repository is a Fork of the DLANDON repository I will keep the donation link below:
+As this repository is a Fork of the DLANDON repository I will keep the donation link below:  
 You can donate [here](https://www.paypal.com/us/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=EJGPC7B5CS66E).
 
 #### Components
+- base image: phusion/baseimage:focal-1.2.0
 - Mail client : ssmtp
 - webserver : apache2 (ppa:ondrej/apache2)
 - Webcode : PHP7.4 (ppa:ondrej/php)
 - Database : mariadb (latest)
 - Zoneminder 1.36
 
-Total size of the container at deployement is 507 MB due to the use of Ubuntu full OS. 
+Total size of the container at deployement is small. 
+
+### Deployment
+Easiest way to deploy is doing the following:  
+- ssh to your Docker host (AMD64 machine only)
+- create a new directory somewhere on this machine (assert /opt/zoneminder2025)
+- create a new file here, named docker-compose.yml and take over the contents of the file inside this repo.
+- make Docker pull this git repository: (we use `zoneminder2025 ` as a image reference, you can change it to whatever you like) 
+- ```docker build -t zoneminder2025 github.com/infinity202/zoneminder.unraid ```
+- building the first time will take several minutes !
+- when finished:
+- ```sudo docker compose -f docker-compose.yaml up```
+- Your Zoneminder server will be up in a few minutes and reachable on https://`your docker host`:8843/zm 
 
 #### Usage
 
