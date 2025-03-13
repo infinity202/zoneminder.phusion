@@ -1,4 +1,4 @@
-## Zoneminder Docker for Ubuntu:latest
+## Zoneminder Docker for phusion/baseimage:focal-1.2.0
 
 (Zoneminder version: 1.36)
 
