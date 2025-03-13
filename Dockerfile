@@ -54,8 +54,8 @@ RUN	cd /root && \
 	sed -i "s|^;date.timezone =.*|date.timezone = ${TZ}|" /etc/php/$PHP_VERS/apache2/php.ini && \
 	service mysql start && \
 	mysqladmin -uroot reload && \
-	#mysql -sfu root < "mysql_secure_installation.sql" && \
-	#rm mysql_secure_installation.sql && \
+	mysql -sfu root < "mysql_secure_installation.sql" && \
+	rm mysql_secure_installation.sql && \
 	mysql -sfu root < "mysql_defaults.sql" && \
 	rm mysql_defaults.sql && \
  	mysql -sfu root < "/usr/share/zoneminder/db/zm_create.sql" && \
@@ -73,7 +73,7 @@ RUN	systemd-tmpfiles --create zoneminder.conf && \
 
 RUN	mv /root/default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf && \
 	mkdir /etc/apache2/ssl/ && \
- 	mkdir /etc/cron.weekly/ && \
+ 	#mkdir /etc/cron.weekly/ && \
  	mkdir -p /var/lib/zmeventnotification/images && \
 	chown -R www-data:www-data /var/lib/zmeventnotification/ && \
  	chown -R www-data:www-data /var/log/zm/ && \
