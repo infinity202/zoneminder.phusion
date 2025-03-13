@@ -52,7 +52,7 @@ RUN	cd /root && \
 	chown -R www-data:www-data /usr/share/zoneminder/ && \
 	echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 	sed -i "s|^;date.timezone =.*|date.timezone = ${TZ}|" /etc/php/$PHP_VERS/apache2/php.ini && \
-	service mariadb start && \
+	service mysql start && \
 	mysqladmin -uroot reload && \
 	#mysql -sfu root < "mysql_secure_installation.sql" && \
 	#rm mysql_secure_installation.sql && \
@@ -66,7 +66,7 @@ RUN	cd /root && \
 RUN	systemd-tmpfiles --create zoneminder.conf && \
 	mv /root/zoneminder /etc/init.d/zoneminder && \
 	chmod +x /etc/init.d/zoneminder && \
-	service mariadb restart && \
+	service mysql restart && \
 	sleep 5 && \
 	service apache2 restart && \
 	service zoneminder start
