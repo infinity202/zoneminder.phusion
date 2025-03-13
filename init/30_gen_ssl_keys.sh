@@ -15,7 +15,7 @@ else
 	mkdir -p /config/keys
 	echo "localhost" >> /config/keys/ServerName
 	openssl rand -out ./.rnd -writerand ./.rnd 
-	openssl req -x509 -nodes -days 4096 -newkey rsa:2048 -out /config/keys/cert.crt -keyout /config/keys/cert.key -subj "/C=US/ST=NY/L=New York/O=Zoneminder/OU=Zoneminder/CN=localhost"
+	openssl req -x509 -nodes -days 4096 -newkey rsa:2048 -out /config/keys/zoneminder.crt -keyout /config/keys/zoneminder.key -subj "/C=US/ST=NY/L=New York/O=Zoneminder/OU=Zoneminder/CN=localhost"
 fi
 
 chown root:root /config/keys
